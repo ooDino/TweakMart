@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <!--LINKS-->
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="js/market.js"></script>
+  <link rel="stylesheet" type="text/css" href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css>
+  <link rel="stylesheet" type="text/css" href="market.css">
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Indie+Flower" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <title>TweakMart</title>
+  <!--LINKS-->
+  
+</head>
+
+<!--BODY BACKGROUND PICTURE-->
+<body style="background-image:url(https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?w=2000)">
+<!--BODY BACKGROUND PICTURE-->
+  
+<!--NAVATION BAR-->
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div id="navblue" class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" id="brand">TweakMart</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul id="main-nav" class="nav navbar-nav">
+          <li><a href="home.html">Home</a></li>
+          <li class="active"><a href="market.html">Market</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="entry.html">Login/Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!--NAVATION BAR-->
+
+<!--SMALL JUMBOTRON-->    
+<div id="box">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="jumbotron">
+          <h2>Find Items</h2>
+          <div class="container">
+            <form action="" id="contactForm">
+                <h4>Enter Title or Keywords</h4>
+                <div class="inputBox">
+                  <input type="text" placeholder="Enter Title or Keywords">
+                </div>
+                <h4>Price Range</h4>
+                <div class="inputBox">
+                  Show Item priced from $
+                  <input type="number" placeholder="Min">
+                  to $
+                  <input type="number" placeholder="Max">
+                </div>
+                <h4>Ratings</h4>
+                <div class="rate">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+                
+                <div class="inputBox" style="clear: both">
+                  <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="jumbotron">
+          <h2>Categories</h2>
+            <div style="text-align: center;">
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/electronics.html" style="color: black;">
+                <img src="media/cat1.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/collectiblesandart.html" style="color: black;">
+                <img src="media/cat2.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/fashion.html" style="color: black;">
+                <img src="media/cat3.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/toysandhobbies.html" style="color: black;">
+                <img src="media/cat4.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/sportinggoods.html" style="color: black;">
+                <img src="media/cat5.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/healthandbeauty.html" style="color: black;">
+                <img src="media/cat6.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/booksmoviesandmusic.html" style="color: black;">
+                <img src="media/cat7.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/businessandindustrial.html" style="color: black;">
+                <img src="media/cat8.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>  
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/homeandgarden.html" style="color: black;">
+                <img src="media/cat9.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>  
+              <div class="card" style="display:inline-block; padding:5px;">
+                <a href="/categories/other.html" style="color: black;">
+                <img src="media/cat10.jpg" alt="Avatar" style="width:100%">
+                </a>
+              </div>  
+            </div>
+        </div>
+      </div>
+<!--SMALL JUMBOTRON-->     
+
+<script type="text/javascript" src="market.js"></script>
+</body>
+</html>
