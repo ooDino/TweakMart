@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage.apps.HomepageConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -127,9 +128,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Login
+# Login/Logout Redirect
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "memberhome"
+LOGOUT_REDIRECT_URL = "home"
 
 
 

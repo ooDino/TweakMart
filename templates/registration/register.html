@@ -4,7 +4,7 @@
 
 <head>
   <!--LINKS-->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
   <!--LINKS-->
   <title>TweakMart</title>
@@ -14,7 +14,7 @@
 <!--LOGIN/REGISTER-->
 <div class="box">
   <div class="form">
-    <h2>Login</h2>
+    <h2>Register</h2>
     <form method="POST" action="">{% csrf_token %}
       <div class="inputBox">
         {{ form.username }}
@@ -22,15 +22,25 @@
         <i></i>
       </div>
       <div class="inputBox">
-        {{ form.password }}
+        {{ form.email }}
+        <span>Email</span>
+        <i></i>
+      </div>
+      <div class="inputBox">
+        {{ form.password1 }}
         <span>Password</span>
         <i></i>
       </div>
-      <div class="links">
-        <p>Don't have an account?</p>
-        <a href="{% url 'register' %}">Register here</a>
+      <div class="inputBox">
+        {{ form.password2 }}
+        <span>Confirm Password</span>
+        <i></i>
       </div>
-      <input type="submit" value="Login">
+      <div class="links">
+        <p>Already have an account?</p>
+        <a href="{% url 'login' %}">Login here</a>
+      </div>
+      <input type="submit" value="Register">
     </form>
   </div>
 </div>
