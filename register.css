@@ -21,7 +21,7 @@ body
 {
     position: relative;
     width: 380px;
-    height: 420px;
+    height: 600px;
     background: #1c1c1c;
     border-radius: 8px;
     overflow: hidden;
@@ -58,7 +58,7 @@ body
 {
     0%
     {
-        transform: rotate(0deg);
+        transform: rotate(100deg);
     }
     100%
     {
