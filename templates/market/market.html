@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block metadata %}
+    <title>Market</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Market</h1>
+    <form action="{% url 'market-lot' %}" method="GET" >
+        <button>Add Lot</button>
+    </form>
+    {% for lot in lots %}
+    <div style="background-color: white;">
+        <h2>Name: {{ lot.name }}</h2>
+        <p>Description: {{ lot.description }}</p>
+        <p>Starting Bid: {{ lot.startBid }}</p>
+        <p><a href="deleteLot/{{ lot.id }}">delete</a></p>
+    </div>
+    {% endfor %}
+{% endblock %}

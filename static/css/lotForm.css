@@ -1,0 +1,15 @@
+.lot-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 200px;
+}
+
+.lot-container form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}

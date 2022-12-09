@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block metadata %}
+    <title>Add Lot</title>
+    <link href="{% static 'css/lotForm.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+    <div class="container lot-container">
+        <h2>Add Lot to Market</h2>
+        <form action="{% url 'market-lot' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Submit" />
+        </form> 
+    </div>
+
+{% endblock %}
