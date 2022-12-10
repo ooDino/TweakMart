@@ -7,6 +7,7 @@ class Lot(models.Model):
     name = models.CharField(max_length = 50)
     description = models.TextField()
     startBid = models.IntegerField(default = 1)
+    image = models.ImageField(upload_to ='static/media/uploads')
     # add image field later
 
     def __str__(self):

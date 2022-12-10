@@ -23,12 +23,13 @@ class MarketFormView(View):
 
     def post(self, request):
         if request.user.is_authenticated:
-            form = LotForm(request.POST)
+            form = LotForm(request.POST, request.FILES)
             if form.is_valid():
                 lot = Lot()
                 lot.name = request.POST['name']
                 lot.description = request.POST['description']
                 lot.startBid = request.POST['startBid']
+                lot.image = request.FILES['image']
                 lot.user = request.user
                 lot.save()
                 return redirect('/market')
