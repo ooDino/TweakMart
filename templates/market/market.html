@@ -4,6 +4,13 @@
     <title>Market</title>
 {% endblock %}
 
+{% block urls %}
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li class="active"><a href="{% url 'market' %}">Market</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="{% url 'login' %}">Login/Register</a></li>
+{% endblock %}
+
 {% block content %}
     <h1>Market</h1>
     <form action="{% url 'market-lot' %}" method="GET" >

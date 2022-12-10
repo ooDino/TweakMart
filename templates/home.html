@@ -5,6 +5,13 @@
   <title>TweakMart</title>
 {% endblock %}
 
+{% block urls %}
+  <li class="active"><a href="{% url 'home' %}">Home</a></li>
+  <li><a href="{% url 'market' %}">Market</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="{% url 'login' %}">Login/Register</a></li>
+{% endblock %}
+
 {% block content %}
   <!--SLIDESHOW-->
   <div id="slideshow" class="bs-example" data-example-id="simple-carousel"> 

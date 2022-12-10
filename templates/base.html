@@ -29,10 +29,11 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul id="main-nav" class="nav navbar-nav">
-                <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'market' %}">Market</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="{% url 'login' %}">Login/Register</a></li>
+                
+                    {% block urls %}
+
+                    {% endblock %}
+
                 </ul>
             </div>
         

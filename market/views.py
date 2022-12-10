@@ -14,15 +14,27 @@ class MarketView(View):
 
 class MarketFormView(View):
     def get(self, request):
-        form = LotForm()
-        context = {'form': form}
-        return render(request, 'market/addLot.html', context)
+        if request.user.is_authenticated:
+            form = LotForm()
+            context = {'form': form}
+            return render(request, 'market/addLot.html', context)
+        else:
+            return redirect('/accounts/login/')
 
     def post(self, request):
-        form = LotForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/market')
+        if request.user.is_authenticated:
+            form = LotForm(request.POST)
+            if form.is_valid():
+                lot = Lot()
+                lot.name = request.POST['name']
+                lot.description = request.POST['description']
+                lot.startBid = request.POST['startBid']
+                lot.user = request.user
+                lot.save()
+                return redirect('/market')
+        else:
+            return redirect('/accounts/login/')
+
 
             
 
