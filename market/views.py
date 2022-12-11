@@ -9,7 +9,7 @@ from .forms import LotForm
 # Create your views here.
 class MarketView(View):
     def get(self, request):
-        context = {'lots': Lot.objects.all()}
+        context = {'lots': Lot.objects.all(), 'loggedIn': request.user.is_authenticated}
         return render(request, 'market/market.html', context)
 
 class MarketFormView(View):
