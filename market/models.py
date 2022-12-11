@@ -8,9 +8,16 @@ class Lot(models.Model):
     description = models.TextField()
     startBid = models.IntegerField(default = 1)
     image = models.ImageField(upload_to ='static/media/uploads')
-    # add image field later
-
     def __str__(self):
         return self.name
 
 # implement Bid Model later
+class Bid(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lot = models.ForeignKey(Lot, on_delete=models.CASCADE)
+    amount = models.IntegerField()
+
+# class Transaction(models.Model):
+#     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+#     buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+#     bidAmount = models.IntegerField()

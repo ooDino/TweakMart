@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-
-from .models import Lot
-from .forms import LotForm
+from django.contrib.auth.models import User
+from .models import Lot, Bid
+from .forms import LotForm, BidForm
 
 # Create your views here.
 class MarketView(View):
@@ -36,10 +36,37 @@ class MarketFormView(View):
         else:
             return redirect('/accounts/login/')
 
-
-            
-
 def deleteLot(request, id):
     lot = Lot.objects.get(id = id)
     lot.delete()
     return redirect('/market')
+
+class BidFormView(View):
+    def get(self, request, id):
+        if request.user.is_authenticated:
+            form = BidForm()
+            context = {'form': form, 'id': id}
+            return render(request, 'market/bid.html', context)
+        else:
+            return redirect('/accounts/login/')
+    
+    def post(self, request, id):
+        if request.user.is_authenticated:
+            form = BidForm(request.POST)
+            if form.is_valid():
+                bid = Bid()
+                bid.lot = Lot.objects.get(id = id)
+                bid.amount = request.POST['amount']
+                bid.user = request.user
+                bid.save()
+                return redirect('/market')
+
+        else:
+            return redirect('/accounts/login/')
+
+class LotView(View):
+    def get(self, request, id):
+        lot = Lot.objects.get(id = id)
+        bids = lot.bid_set.all()
+        context = {'lot': lot, 'bids': bids}
+        return render(request, 'market/lot.html', context)

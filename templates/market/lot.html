@@ -17,18 +17,21 @@
 {% endblock %}
 
 {% block content %}
+    <h1>Market</h1>
 
-    <form action="{% url 'market-lot' %}" method="GET" >
-        <button>Add Lot</button>
-    </form>
-    {% for lot in lots %}
     <div style="background-color: white;">
         <img src="{{ lot.image.url }}" />
-        <h2><a href="lot/{{ lot.id }}">Name: {{ lot.name }}</a></h2>
-        <p>Description: {{ lot.description }}</p>
-        <p>Starting Bid: {{ lot.startBid }}</p>
-        <p><a href="deleteLot/{{ lot.id }}">delete</a></p>
-        <p><a href="bid/{{ lot.id }}">Place a Bid</a></p>
+        <h2>Name: {{ lot.name }}</h2>
     </div>
-    {% endfor %}
+
+    <div style="background-color: white;">
+        <h2>Bids</h2>
+        {% for bid in bids %}
+            <div style="background-color: pink;">
+                <p>User: {{ bid.user }}</p>
+                <p>Starting Bid: {{ bid.amount }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}
