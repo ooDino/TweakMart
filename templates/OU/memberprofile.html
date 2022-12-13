@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +8,7 @@
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="memberprofile.js"></script>
   <link rel="stylesheet" type="text/css" href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css>
-  <link rel="stylesheet" type="text/css" href="/categories/listing.css">
+  <link rel="stylesheet" type="text/css" href="{% static '/css/listing.css' %}">
   <link rel="stylesheet" type="text/css" href="/navbar.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Indie+Flower" />
@@ -24,7 +25,7 @@
 
 <!--SIDE BAR-->
 <div class="sidenav">
-    <a href="/OU/memberhome.html">Home</a>
+    <a href="{% url 'home' %}">Home</a>
     <a href="/OU/memberprofile.html" class="active">Personal Information</a>
     <a href="/OU/memberpaymentandwallet.html">Payment & Wallet</a>
     <a href="/OU/membertransaction.html">Transaction</a>
@@ -33,42 +34,50 @@
 <!--SIDE BAR-->
 
 <div style="margin-left: 200px; margin-top: 100px; border: solid; height: 500px; width: 40%; padding: 1%; display: inline-block">
-    <p>Username</p>
-    <div>
-        <input type="text" placeholder="New Username">
-    </div>
-    <br>
-    <p>Phone Number</p>
-    <div>
-        <input type="text" placeholder="New Phone Number">
-    </div>
-    <br>
-    <p>Address</p>
-    <div>
-        <input type="text" placeholder="New Address">
-    </div>
-    <br>
-    <button>Save Changes</button>
+    <form method="POST" action="{% url 'profileupdate' %}">
+        {% csrf_token %}
+        <p>Username</p>
+        <div>
+            <input type="text" placeholder="New Username" name="new_user">
+        </div>
+        <br>
+        <p>Phone Number</p>
+        <div>
+            <input type="text" placeholder="New Phone Number" name="new_number">
+        </div>
+        <br>
+        <p>Address</p>
+        <div>
+            <input type="text" placeholder="New Address" name="new_address">
+        </div>
+        <br>
+        <button type="submit">Save Changes</button>
+    </form>
 </div>
 
+
 <div style="border: solid; height: 500px; width: 40%; padding: 1%; display: inline-block;">
-    <p>Old Password</p>
-    <div>
-        <input type="password" placeholder="Old Password">
-    </div>
-    <br>
-    <p>New Password</p>
-    <div>
-        <input type="password" placeholder="New Password">
-    </div>
-    <br>
-    <p>Retype Password</p>
-    <div>
-        <input type="text" placeholder="Retype Password">
-    </div>
-    <br>
-    <button>Save Changes</button>
+    <form method="POST" action="{% url 'profilepasswordupdate' %}">
+        {% csrf_token %}
+        <p>Old Password</p>
+        <div>
+            <input type="password" placeholder="Old Password" name="old_pass">
+        </div>
+        <br>
+        <p>New Password</p>
+        <div>
+            <input type="password" placeholder="New Password" name="new_pass">
+        </div>
+        <br>
+        <p>Retype Password</p>
+        <div>
+            <input type="text" placeholder="Retype Password" name="retype_new_pass">
+        </div>
+        <br>
+        <button>Save Changes</button>
+    </form>
 </div>
+
 
 <script type="text/javascript" src="memberprofile.js"></script>
 </body>
