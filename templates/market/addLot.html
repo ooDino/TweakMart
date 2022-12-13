@@ -6,6 +6,11 @@
     <link href="{% static 'css/lotForm.css' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
+{% block urls %}
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'market' %}">Market</a></li>
+{% endblock %}
+
 {% block content %}
 
     <div class="container lot-container">
