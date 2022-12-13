@@ -1,9 +1,11 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
+from .models import Profile
 
 class CreateUserForm(UserCreationForm):
+    email = forms.EmailField()
     class Meta:
         model = User
         fields = [
@@ -37,7 +39,6 @@ class CreateUserForm(UserCreationForm):
         
 
 class CustomLoginForm(AuthenticationForm):
-
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
     self.fields['username'].widget.attrs.update({ 
@@ -48,3 +49,18 @@ class CustomLoginForm(AuthenticationForm):
       'type': 'password',
       'required': 'required',
     })
+
+class EditProfileForm(UserChangeForm):
+    class Meta():
+        model = User
+        fields = [
+            'username',
+            'password',
+        ]
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({ 
+        'type': 'text',
+        'placeholder': 'New Username',
+        })
