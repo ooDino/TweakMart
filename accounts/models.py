@@ -7,8 +7,8 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bal = models.IntegerField(default = 0)
-    phone_number = models.PositiveBigIntegerField()
-    address = models.CharField(max_length=100)
+    phone_number = models.PositiveBigIntegerField(default=0)
+    address = models.CharField(max_length=100, default='0')
     # add more fields as needed
 
     def __str__(self):
