@@ -8,9 +8,10 @@
     <li><a href="{% url 'home' %}">Home</a></li>
     <li class="active"><a href="{% url 'market' %}">Market</a></li>
     <li><a href="{% url 'contact' %}">Contact</a></li>
-    {% if loggedIn %}
-        <li><a href="memberprofile.html">Profile</a></li>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'memberprofile' %}">Profile</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li>Balance: {{ user.profile.bal }}</li>
     {% else %}
         <li><a href="{% url 'login' %}">Login/Register</a></li>
     {% endif %}
@@ -18,17 +19,23 @@
 
 {% block content %}
 
-    <form action="{% url 'market-lot' %}" method="GET" >
-        <button>Add Lot</button>
-    </form>
+    <div style= "position:fixed; height: 100%; width: 120px;">
+        <form action="{% url 'market-lot' %}" method="GET" style="position: sticky; top: 140px;">
+            {% if user.is_authenticated %}
+                <button style="width:120px; height:50px">Add Lot</button>
+            {% endif %}
+        </form>
+    </div>
     {% for lot in lots %}
-    <div style="background-color: white;">
-        <img src="{{ lot.image.url }}" />
+    <div style="background-color: white; margin-left:120px;">
+        <img src="{{ lot.image.url }}" style="max-width:600px;width:100%;max-height:600px;height:100%"  />
         <h2><a href="lot/{{ lot.id }}">Name: {{ lot.name }}</a></h2>
         <p>Description: {{ lot.description }}</p>
-        <p>Starting Bid: {{ lot.startBid }}</p>
-        <p><a href="deleteLot/{{ lot.id }}">delete</a></p>
-        <p><a href="bid/{{ lot.id }}">Place a Bid</a></p>
+        <p>Starting Bid: ${{ lot.startBid }}</p>
+        {% if user.is_authenticated %}
+            <p><a href="deleteLot/{{ lot.id }}">delete</a></p>
+            <p><a href="bid/{{ lot.id }}">Place a Bid</a></p>
+        {% endif %}
     </div>
     {% endfor %}
 {% endblock %}

@@ -11,6 +11,7 @@
     {% if loggedIn %}
         <li><a href="memberprofile.html">Profile</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li>Balance: {{ user.profile.bal }}</li>
     {% else %}
         <li><a href="{% url 'login' %}">Login/Register</a></li>
     {% endif %}
@@ -20,18 +21,21 @@
     <h1>Market</h1>
 
     <div style="background-color: white;">
-        <img src="{{ lot.image.url }}" />
+        <img src="{{ lot.image.url }}" style="max-width:600px;width:100%" />
         <h2>Name: {{ lot.name }}</h2>
+        <p>Description: {{ lot.description }}</p>
     </div>
 
     <div style="background-color: white;">
+
         <h2>Bids</h2>
         {% for bid in bids %}
             <div style="background-color: pink;">
                 <p>User: {{ bid.user }}</p>
-                <p>Starting Bid: {{ bid.amount }}</p>
+                <p>Bid: {{ bid.amount }}</p>
             </div>
         {% endfor %}
+        
     </div>
 
 {% endblock %}

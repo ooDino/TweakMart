@@ -1,83 +1,51 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-  
-  <!--LINKS-->
-  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  <script src="/contact.js"></script>
-  <link rel="stylesheet" type="text/css" href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css>
-  <link rel="stylesheet" type="text/css" href="/contact.css">
-  <link rel="stylesheet" type="text/css" href="/navbar.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Indie+Flower" />
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <title>TweakMart</title>
-  <!--LINKS-->
-  
-</head>
+{% block metadata %}
+    <title>Contact</title>
+{% endblock %}
 
-<!--BODY BACKGROUND PICTURE-->
-<body style="background-image:url(https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?w=2000)">
-<!--BODY BACKGROUND PICTURE-->
-  
-<!--NAVATION BAR-->
- <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div id="navblue" class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" id="brand">TweakMart</a>
-      </div>
-  
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  
-        <ul id="main-nav" class="nav navbar-nav">
-          <li><a href="memberhome.html">Home</a></li>
-          <li><a href="membermarket.html">Market</a></li>
-          <li class="active"><a href="membercontact.html">Contact</a></li>
-          <li><a href="memberprofile.html">Profile</a></li>
-        </ul>
-      </div>
-  
+{% block urls %}
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'market' %}">Market</a></li>
+    <li class="active"><a href="{% url 'contact' %}">Contact</a></li>
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'memberprofile' %}">Profile</a></li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+      <li>Balance: {{ user.profile.bal }}</li>
+    {% else %}
+      <li><a href="{% url 'login' %}">Login/Register</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<!--CONTACT FORM-->
+  <div class="container">
+  <form action="" id="contactForm">
+    <div style="line-height:500%;">
+      <br>
+      <h1 style="color:#ffffff;font-weight: 900;">Got Questions? Need Help?</h1>
+      <h3 style="color:#ffffff;font-weight: 900;">We Will Get Back To You As Soon As Possible!</h3>
     </div>
-  </nav>
-<!--NAVATION BAR-->
-
-<!--CONTACT FORM-->
-<div class="container">
-    <form action="" id="contactForm">
-        <div>
-          <h1 style="font-weight: 900;">Got Questions? Need Help?</h1>
-          <h3 style="font-weight: 900;">We Will Get Back To You As Soon As Possible!</h3>
-        </div>
-        <div class="alert">Message Has Been Sent!</div>
-
-        <div class="inputBox">
-            <input type="text" id="name" placeholder="Your Name" required/>
-        </div>
-
-        <div class="inputBox">
-            <input type="email" id="emailid" placeholder="Your Email" required/>
-        </div>
-
-        <div class="inputBox">
-            <textarea id="msgContent" cols="30" rows="10" placeholder="Message" required></textarea>
-        </div>
-
-        <div class="inputBox">
-            <button type="submit" onclick="myFunction()">Submit</button>
-        </div>
-    </form>
-</div>
-<h4 style="color:#ffffff;text-align: center;font-weight: 900;">Or you can email us directly at OfficialTweakMart@gmail.com</h4>
-<!--CONTACT FORM-->
-
-<script type="text/javascript" src="contact.js"></script>
-</body>
-</html>
+    <!--<div class="alert">Message Has Been Sent!</div>-->
+  
+    <div class="inputBox">
+        <input type="text" id="name" placeholder="Your Name" required/>
+    </div>
+  
+    <div class="inputBox">
+        <input type="email" id="emailid" placeholder="Your Email" required/>
+    </div>
+  
+    <div class="inputBox">
+        <textarea id="msgContent" cols="30" rows="10" placeholder="Message" required></textarea>
+    </div>
+  
+    <div class="inputBox">
+        <button type="submit" onclick="myFunction()">Submit</button>
+    </div>
+  </form>
+  </div>
+  <h4 style="color:#ffffff;text-align: center;font-weight: 900;">Or you can email us directly at OfficialTweakMart@gmail.com</h4>
+  <!--CONTACT FORM-->
+    
+{% endblock %}
