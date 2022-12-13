@@ -42,7 +42,11 @@ def AddCard(request):
 
 def Withdraw(request):
     user = User.objects.get(id=request.user.id)
-    user.profile.bal = user.profile.bal - int(request.POST['withdraw_amount'])
+    cur_bal = user.profile.bal
+    if cur_bal < int(request.POST['withdraw_amount']):
+        user.profile.bal = 0
+    else:
+        user.profile.bal = user.profile.bal - int(request.POST['withdraw_amount'])
 
     user.save()
     return redirect(request.META.get('HTTP_REFERER'))
