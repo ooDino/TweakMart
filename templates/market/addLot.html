@@ -9,6 +9,7 @@
 {% block urls %}
     <li><a href="{% url 'home' %}">Home</a></li>
     <li><a href="{% url 'market' %}">Market</a></li>
+    <li>Balance: {{ user.profile.bal }}</li>
 {% endblock %}
 
 {% block content %}

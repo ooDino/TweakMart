@@ -9,8 +9,9 @@
     <li><a href="{% url 'market' %}">Market</a></li>
     <li class="active"><a href="{% url 'contact' %}">Contact</a></li>
     {% if user.is_authenticated %}
-      <li><a href="memberprofile.html">Profile</a></li>
+      <li><a href="{% url 'memberprofile' %}">Profile</a></li>
       <li><a href="{% url 'logout' %}">Logout</a></li>
+      <li>Balance: {{ user.profile.bal }}</li>
     {% else %}
       <li><a href="{% url 'login' %}">Login/Register</a></li>
     {% endif %}
