@@ -18,6 +18,14 @@ class Bid(models.Model):
     lot = models.ForeignKey(Lot, on_delete=models.CASCADE)
     amount = models.IntegerField()
 
+class Reviews(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    lot = models.ForeignKey(Lot, on_delete=models.CASCADE)
+    review = models.TextField()
+    rating = models.IntegerField(default=0)
+    def __str__(self):
+        return f"{self.post.header}: {self.rating}"
+
 # class Transaction(models.Model):
 #     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 #     buyer = models.ForeignKey(User, on_delete=models.CASCADE)

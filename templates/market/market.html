@@ -27,8 +27,8 @@
         </form>
     </div>
     {% for lot in lots %}
-    <div style="background-color: white; margin-left:120px;">
-        <img src="{{ lot.image.url }}" style="max-width:600px;width:100%;max-height:600px;height:100%"  />
+    <div style="background-color: white; margin-left:20%; margin-right:20%">
+        <img src="{{ lot.image.url }}" style="max-width:600px;width:100%;max-height:600px;height:100%; display: block; margin-left: auto; margin-right: auto;"   />
         <h2><a href="lot/{{ lot.id }}">Name: {{ lot.name }}</a></h2>
         <p>Description: {{ lot.description }}</p>
         <p>Starting Bid: ${{ lot.startBid }}</p>

@@ -25,48 +25,19 @@
 
 <!--SIDE BAR-->
 <div class="sidenav">
-<<<<<<< HEAD
-    <a href="/OU/memberhome.html">Home</a>
-    <a href="/OU/memberprofile.html">Personal Information</a>
-    <a href="/OU/membertransaction.html" class="active">Transaction</a>
-    <a href="/home.html">Logout</a>
-=======
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'memberprofile' %}" class="active">Personal Information</a>
     <a href="{% url 'memberpaymentandwallet' %}">Payment & Wallet</a>
     <a href="{% url 'membertransaction' %}">Transaction</a>
     <a href="{% url 'logout' %}">Logout</a>
->>>>>>> 9d10343832158fb0358fab16118d5bbd4e307e3b
 </div> 
 <!--SIDE BAR-->
 
-<div style="text-align: center; margin-left: 200px; margin-top: 100px; border: solid; height: 500px; width: 40%; padding: 1%; display: inline-block">
+<div style="text-align: center; margin-left: 400px; margin-top: 100px; border: solid; height: 500px; width: 40%; padding: 1%; display: inline-block">
     <h3 style="text-align: center;">Transaction History</h3>
     <br><br><br><br><br><br><br><br><br>
     <p>There are no transaction made so far</p>
     <br><br><br><br><br><br><br><br><br>
-</div>
-
-<div style="border: solid; height: 500px; width: 40%; padding: 1.3%; display: inline-block;">
-    <h3 style="text-align: center;">SELL YOUR ITEM</h3>
-    <h4>Title</h4>
-    <p>Use words people would search for when looking for your item</p>
-    <br>
-    <input type="text" placeholder="Enter Title or Keywords">
-    <br><br>
-    <p>Time limit</p>
-    <br>
-    <input type="number" placeholder="# of Day(s)">
-    <br><br>
-    <p>Price</p>
-    <br>
-    <input type="number" placeholder="$">
-    <br><br>
-    <p>Add a Photo</p>
-    <input type="file" id="img" name="img" accept="image/*">
-    <br><br>
-    <button>List It</button>
-    <br><br>
 </div>
 
 <script type="text/javascript" src="memberprofile.js"></script>
