@@ -6,9 +6,13 @@ from django.dispatch import receiver
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bal = models.IntegerField(default = 0)
-    phone_number = models.PositiveBigIntegerField(default=0)
-    address = models.CharField(max_length=100, default='0')
+    bal = models.IntegerField(blank=True, null=True, default = 0)
+    phone_number = models.PositiveBigIntegerField(blank=True, null=True, default=0)
+    address = models.CharField(blank='', max_length=100, default='0')
+    card_number = models.PositiveBigIntegerField(blank=True, null=True, default=0)
+    card_name = models.CharField(blank='', max_length=100, default=0)
+    expire = models.CharField(blank='', max_length=10, default='0')
+    cvv = models.PositiveBigIntegerField(blank=True, null=True,default=0)   
     # add more fields as needed
 
     def __str__(self):

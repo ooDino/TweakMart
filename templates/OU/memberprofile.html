@@ -26,10 +26,9 @@
 <!--SIDE BAR-->
 <div class="sidenav">
     <a href="{% url 'home' %}">Home</a>
-    <a href="/OU/memberprofile.html" class="active">Personal Information</a>
-    <a href="/OU/memberpaymentandwallet.html">Payment & Wallet</a>
+    <a href="{% url 'memberprofile' %}">Profile</a>
+    <a href="{% url 'wallet' %}">Payment & Wallet</a>
     <a href="/OU/membertransaction.html">Transaction</a>
-    <a href="/home.html">Logout</a>
 </div> 
 <!--SIDE BAR-->
 

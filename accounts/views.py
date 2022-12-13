@@ -30,8 +30,26 @@ def EditPassword(request):
     user.save()
     return redirect(request.META.get('HTTP_REFERER'))
 
-def PrivacyView():
-    form_class = EditProfileForm()
-
-    return auth_views.PasswordChangeView.as_view(template_name="OU/memberprivacy.html", success_url=reverse_lazy("memberprivacy"), extra_context={"form" : form_class} )
+def AddCard(request):
+    user = User.objects.get(id=request.user.id)
+    user.profile.card_number = request.POST['cardnumber']
+    user.profile.card_name = request.POST['cardname']
+    user.profile.expire = request.POST['expire']
+    user.profile.cvv = request.POST['cvv']
     
+    user.save()
+    return redirect(request.META.get('HTTP_REFERER'))
+
+def Withdraw(request):
+    user = User.objects.get(id=request.user.id)
+    user.profile.bal = user.profile.bal - int(request.POST['withdraw_amount'])
+
+    user.save()
+    return redirect(request.META.get('HTTP_REFERER'))
+
+def Deposit(request):
+    user = User.objects.get(id=request.user.id)
+    user.profile.bal = user.profile.bal + int(request.POST['deposit_amount'])
+
+    user.save()
+    return redirect(request.META.get('HTTP_REFERER'))
